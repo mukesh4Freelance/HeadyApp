@@ -3,7 +3,7 @@ package com.jinxtris.ram.headapp.viewModel
 import androidx.lifecycle.ViewModel
 
 abstract class BaseViewModel : ViewModel(){
-
+    private val test: Int = 0
     /*private val mIsLoading = ObservableBoolean()
 
     override fun onCleared() {
