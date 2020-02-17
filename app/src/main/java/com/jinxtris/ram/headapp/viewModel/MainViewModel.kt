@@ -1,10 +1,46 @@
 package com.jinxtris.ram.headapp.viewModel
 
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.MutableLiveData
+import com.jinxtris.ram.headapp.extension.toast
+import com.jinxtris.ram.headapp.model.Root
+import com.jinxtris.ram.headapp.repository.MainRepository
+import com.jinxtris.ram.headapp.retrofit.APIService
+import com.jinxtris.ram.headapp.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainViewModel : BaseViewModel(), LifecycleObserver {
-    //var openOrderListLiveData = MutableLiveData<MutableList<OpenOrderList>>()
-    //private val portfolioRepository = PortfolioRepository
+    var rootLiveData = MutableLiveData<Root>()
+    private val mainRepository = MainRepository
+
+
+    fun callService() {
+        val service = RetrofitClient.retroInstance?.create(APIService::class.java)
+        val call = service?.categoryData()
+
+        call?.enqueue(object : Callback<Root> {
+            override fun onFailure(call: Call<Root>, t: Throwable) {
+                toast("Failure")
+            }
+
+            override fun onResponse(call: Call<Root>, response: Response<Root>) {
+                val body = response?.body()
+                val information = body?.categories
+                val ranking = body?.rankings
+                toast(
+                    "Category Size: ${information?.size} \n Ranking Size : ${ranking?.size}")
+                            val categoryData = information
+                            val rankings = ranking
+                            val rootData = Root()
+                rootData.categories = categoryData
+                rootData.rankings = rankings
+                rootLiveData.postValue(rootData)
+            }
+
+        })
+    }
 
 
     /*fun callOrderBookAPIRequest() {
