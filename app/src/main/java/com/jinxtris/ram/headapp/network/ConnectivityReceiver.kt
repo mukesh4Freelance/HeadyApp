@@ -1,5 +1,10 @@
 package com.jinxtris.ram.headapp.network
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import com.jinxtris.ram.headapp.extension.isConnectedToInternet
+
 class ConnectivityReceiver : BroadcastReceiver() {
 
 

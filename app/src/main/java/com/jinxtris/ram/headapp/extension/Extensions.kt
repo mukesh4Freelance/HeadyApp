@@ -1,5 +1,13 @@
 package com.jinxtris.ram.headapp.extension
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.os.SystemClock
+import android.view.View
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+import com.jinxtris.ram.headapp.AppContext
+
 
 var toast = { message: String -> AppContext.getInstance().toast(message) }
 

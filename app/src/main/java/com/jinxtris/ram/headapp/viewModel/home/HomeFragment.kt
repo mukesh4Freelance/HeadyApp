@@ -5,14 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.jinxtris.ram.headapp.BaseFragment
 import com.jinxtris.ram.headapp.R
+import com.jinxtris.ram.headapp.model.Root
 import com.jinxtris.ram.headapp.viewModel.MainViewModel
 
 
 class HomeFragment : BaseFragment() {
     private lateinit var mainViewModel: MainViewModel
+    private var rootData: Root = Root()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,6 +29,21 @@ class HomeFragment : BaseFragment() {
         mainViewModel = activity?.run {
             ViewModelProviders.of(this).get(MainViewModel::class.java)
         } ?: throw Exception("Invalid Activity")
+
+
+        mainViewModel.callService()
+
+        mainViewModel.rootLiveData.observe(viewLifecycleOwner, Observer {
+            rootData = it
+
+            if (rootData.categories!!.size > 0) {
+
+            }
+
+            if (rootData.rankings!!.size > 0) {
+
+            }
+        })
 
         /*portfolioModel.orderHistoryLiveDataList.observe(viewLifecycleOwner, Observer {
 
