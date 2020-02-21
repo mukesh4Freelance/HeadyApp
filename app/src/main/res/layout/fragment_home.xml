@@ -58,6 +58,22 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner_home_category" />
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="OR"
+        android:textStyle="bold"
+        android:textColor="#136BB1"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_home_show_product" />
+
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -66,19 +82,19 @@
         android:text="Select product using ranking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_home_show_product" />
+        app:layout_constraintTop_toBottomOf="@+id/txtor" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rl_home_data"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@android:color/white"
         android:clipToPadding="false"
         android:overScrollMode="never"
-        android:paddingBottom="80dp"
+        android:paddingBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
