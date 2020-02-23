@@ -5,7 +5,10 @@ data class Products(
     var name: String? = null,
     var date_added: String? = null,
     var variants: List<Variants>? = null,
-    var tax: Tax? = null
+    var tax: Tax? = null,
+    var view_count: Int?,
+    var order_count: Int?,
+    var shares: Int?
 
 ) {
     constructor() : this(
@@ -13,6 +16,9 @@ data class Products(
         name = null,
         date_added = null,
         variants = null,
-        tax = null
+        tax = null,
+        view_count = null,
+        order_count = null,
+        shares = null
     )
 }
